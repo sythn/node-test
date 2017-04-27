@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
+    "prestart": "babel-node build_scripts/start_message.js",
+    "start": "npm-run-all --parallel open:src security_check",
+    "open:src": "babel-node build_scripts/src_server.js",
+    "security_check": "echo 'security'",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
   },
-  "author": "Cory House",
+  "author": "Seyithan Teymur",
   "license": "MIT",
   "dependencies": {
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "6.16.0",
-    "babel-core": "6.17.0",
-    "babel-loader": "6.2.5",
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-latest": "6.16.0",
     "babel-register": "6.16.3",
     "chai": "3.5.0",
